@@ -20,7 +20,8 @@ def return_data(dataset):
         data = load_breast_cancer()
     df = pd.DataFrame(data.data, columns=data.feature_names , index=None)
     df['Type'] = data.target
-    return *train_test_split(data.data, data.target, random_state=1, test_size=0.2), df , data.target_names
+    X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=1, test_size=0.2)
+    return X_train, X_test, y_train, y_test,df,data.target_names
 
 
 def getClassifier(classifier):
